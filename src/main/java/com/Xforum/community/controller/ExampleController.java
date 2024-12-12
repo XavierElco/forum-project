@@ -1,13 +1,15 @@
-package com.xav.codeproject.controller;
+package com.Xforum.community.controller;
 
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.Enumeration;
+import java.util.*;
 
 @Controller
 @RequestMapping("/alpha")
@@ -66,10 +68,58 @@ public class ExampleController {
 
     //POST请求
     @PostMapping(path = "/student")
-    @ResponseBody
+    @ResponseBody// 这个注解不加默认返回html
     public String saveStudent(String name, int age) {
         System.out.println(name);
         System.out.println(age);
         return "提交成功!";
+    }
+
+    // 响应HTML数据
+    @GetMapping(path = "/teacher")
+    public ModelAndView getTeacher() {
+        ModelAndView  mav = new  ModelAndView();
+        mav.addObject("name", "吴雨欣");
+        mav.addObject("age", "24");
+        mav.setViewName("/demo/view");
+        return mav;
+    }
+
+    @GetMapping(path = "/school")
+    public String getSchool(Model model) {
+        model.addAttribute("name", "北体");
+        model.addAttribute("age", 200);
+        return "/demo/view";
+    }
+
+    // 响应JSON数据（异步请求）
+    //Java对象 --》 JSON --》 JS对象
+    @GetMapping (path = "/emp")
+    @ResponseBody
+    public Map<String, Object> getEmp() {
+        Map<String, Object> emp = new HashMap<>();
+        emp.put("name", "小吴");
+        emp.put("age", "24");
+        emp.put("salary", "20");
+        return emp;
+
+    }
+
+    @GetMapping (path = "/emps")
+    @ResponseBody
+    public List<Map<String, Object> > getEmps() {
+        List<Map<String, Object> > list = new ArrayList<>();
+        Map<String, Object> emp = new HashMap<>();
+        emp.put("name", "小吴");
+        emp.put("age", "24");
+        emp.put("salary", "20");
+        list.add(emp);
+
+        emp = new HashMap<>();
+        emp.put("name", "小李");
+        emp.put("age", "22");
+        emp.put("salary", "200000000");
+        list.add(emp);
+        return list;
     }
 }

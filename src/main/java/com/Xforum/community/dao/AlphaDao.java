@@ -1,4 +1,4 @@
-package com.xav.codeproject.dao;
+package com.Xforum.community.dao;
 
 
 public interface AlphaDao {

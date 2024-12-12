@@ -1,4 +1,4 @@
-package com.xav.codeproject.dao;
+package com.Xforum.community.dao;
 
 import org.springframework.stereotype.Repository;
 

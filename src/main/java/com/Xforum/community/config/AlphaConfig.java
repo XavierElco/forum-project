@@ -1,4 +1,4 @@
-package com.xav.codeproject.config;
+package com.Xforum.community.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

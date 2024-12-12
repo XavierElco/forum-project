@@ -1,18 +1,18 @@
-package com.xav.codeproject;
+package com.Xforum.community;
 
-import com.xav.codeproject.dao.AlphaDao;
+import com.Xforum.community.dao.AlphaDao;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.runner.RunWith;
 import org.springframework.beans.BeansException;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
 import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import java.text.SimpleDateFormat;
-
-//@RunWith(SpringRunner.class)
+@ExtendWith(SpringExtension.class)
 @SpringBootTest
 @ContextConfiguration (classes = CodeprojectApplication.class)
 public class CodeprojectApplicationTests implements ApplicationContextAware {
