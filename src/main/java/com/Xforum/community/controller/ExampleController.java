@@ -79,8 +79,8 @@ public class ExampleController {
     @GetMapping(path = "/teacher")
     public ModelAndView getTeacher() {
         ModelAndView  mav = new  ModelAndView();
-        mav.addObject("name", "吴雨欣");
-        mav.addObject("age", "24");
+        mav.addObject("name", "张三");
+        mav.addObject("age", "60");
         mav.setViewName("/demo/view");
         return mav;
     }
